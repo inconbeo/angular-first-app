@@ -1,0 +1,38 @@
+<section id="skills">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+            <div *ngIf="user" class="card">
+                <div class="card-header">
+                  <h4 class="text-center">Hello {{user.firstName}}, below are available skills for you!</h4>
+                </div>
+                <table class="table table-striped">
+                  <thead class="thead bg-success">
+                    <tr>
+                      <th>#</th>
+                      <th>Skills</th>
+                      <th></th>
+                      <th></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                     <tr
+                        *ngFor = "let skill of skills  | paginate: {itemsPerPage: 4, currentPage : p} ;let i = index">
+                          <td scope="row">{{i+1}}</td>
+                          <td>{{skill.name}}</td>
+                          <td><a routerLink="/edit" routerLinkActive="active" (click)="onAdd(skill)"  class="btn btn-primary btn-block">
+                            <i class="fa fa-plus"></i> Add
+                          </a></td>
+                          <td><a (click)="onDelete(skill)"  class="btn btn-danger">
+                              <i class="fa fa-ban"></i> Delete
+                            </a></td>
+                      </tr>
+                    </tbody>
+                </table>
+                <pagination-controls class="my-pagination" (pageChange)="p =$event"></pagination-controls>
+
+                </div>
+            </div>
+      </div>
+    </div>
+  </section>

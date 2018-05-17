@@ -1,0 +1,81 @@
+<div class=" text-center h2">Please peform consultants search below!</div>
+<div class="container">
+  <div class="row justify-content-start">
+    <div class="col-sm-9">
+  <form (ngSubmit)="onSubmit(form)" #form="ngForm" class="form-inline">
+      <div class="form-group  col-lg-3 mr-5">
+        <label for="name"><strong class="text-muted pr-2">Consultant Name</strong></label>
+        <input
+        type="text"
+        id="name"
+        name="name"
+        class="form-control"
+        [ngModel] = "defaultName"
+        required
+        #nameCtrl="ngModel"
+        />
+        <!-- <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a name!</span> -->
+      </div>
+
+        <div class="button align-self-end col-lg-2">
+          <button class="btn btn-success" type="submit" [disabled]="form.invalid"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+        </div>
+
+        <div class="button align-self-end col-lg-2">
+          <button (click)="OnRetrieveAll()" class="btn btn-dark" type="submit"><i class="fa fa-search" aria-hidden="true"></i> All consultants</button>
+        </div>
+
+      </form>
+      </div>
+      </div>
+      </div>
+
+      <section id="skills">
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                  <div *ngIf="consultants" class="card">
+                      <div class="card-header">
+                        <h4 class="text-center">Consultants</h4>
+                      </div>
+                      <table class="table table-striped">
+                        <thead class="thead bg-success">
+                          <tr>
+                            <th>#</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
+                            <th>Role</th>
+                            <th>Skills</th>
+                            <th></th>
+                            <th></th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                           <tr
+                              *ngFor = "let consultant of consultants  | paginate: {itemsPerPage: 3, currentPage : p} ;let i = index">
+                                <td scope="row">{{i+1}}</td>
+                                <td>{{consultant.firstName}}</td>
+                                <td>{{consultant.lastName}}</td>
+                                <td>Spider Man</td>
+                                <td>Swimming, Boxing, sleeping</td>
+                                <td><a routerLink="/edit" routerLinkActive="active" (click)="onEdit(consultant)"  class="btn btn-secondary">
+                                  <i class="fa fa-edit"></i> Edit Skills
+                                </a></td>
+                                <td><a (click)="onDelete(consultant)"  class="btn btn-danger">
+                                    <i class="fa fa-trash"></i> Delete
+                                  </a></td>
+                            </tr>
+                          </tbody>
+                      </table>
+                      <pagination-controls class="my-pagination" (pageChange)="p =$event"></pagination-controls>
+
+                      </div>
+                  </div>
+            </div>
+          </div>
+        </section>
+<!--
+        <app-modal></app-modal> -->
+
+
+

@@ -1,0 +1,47 @@
+input.ng-invalid.ng-touched {
+  border: 1.5px solid red;
+}
+
+h1 {
+  text-align: center;
+  margin-top: -20px;
+  padding-bottom: 10px;
+}
+
+.form-group {
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.btn-primary {
+margin: 0px auto;
+}
+
+.button {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#skills {
+  margin-bottom: 70px;
+  margin-top: 30px;
+}
+
+.page-link {
+color: black
+}
+
+
+/* Edit default background color of the current pagination */
+.my-pagination /deep/ .ngx-pagination .current {
+  background: rgb(36, 158, 36);
+}
+
+
+
+
+
+
+
+
+

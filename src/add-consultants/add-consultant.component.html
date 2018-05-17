@@ -1,0 +1,53 @@
+<form (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <div class="row justify-content-center">
+    <div class="col-sm-6 mx-5">
+  <div class="form-group">
+    <label for="name">First Name</label>
+    <input
+    type="text"
+    id="name"
+    name="first"
+    class="form-control"
+    required
+    #nameCtrl="ngModel"
+    ngModel
+    />
+    <!-- <span class="help-block" *ngIf="nameCtrl.invalid && nameCtrl.touched">Please enter a first name!</span> -->
+  </div>
+
+  <div class="form-group">
+    <label for="name">Last Name</label>
+    <input
+    type="text"
+    id="name"
+    name="last"
+    class="form-control"
+    required
+    #nameCtrl1="ngModel"
+    ngModel
+    />
+    <!-- <span class="help-block" *ngIf="nameCtrl1.invalid && nameCtrl1.touched">Please enter a last name!</span> -->
+  </div>
+
+  <div class="form-group">
+    <label for="name">Email</label>
+    <input
+    type="email"
+    id="name"
+    name="email"
+    class="form-control"
+    required
+    #nameCtrl2="ngModel"
+    ngModel
+    />
+    <!-- <span class="help-block" *ngIf="nameCtrl2.invalid && nameCtrl2.touched">Please enter an email!</span> -->
+  </div>
+
+  <span class="help-block" [ngStyle]="{'display': display}"><strong>Consultant was successfully added!</strong></span>
+
+  <div class="button">
+     <button class="btn btn-success" type="submit" [disabled]="form.invalid">Add consultant</button>
+    </div>
+    </div>
+    </div>
+</form>

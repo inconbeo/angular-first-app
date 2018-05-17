@@ -1,0 +1,12 @@
+form {
+margin: 0 auto;
+}
+
+label {
+  font-weight: 450;
+}
+
+span {
+  color: green;
+  margin-bottom: 10px;
+}

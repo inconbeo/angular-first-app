@@ -1,0 +1,8 @@
+.my-pagination /deep/ .ngx-pagination .current {
+  background: rgb(36, 158, 36);
+}
+
+
+.btn {
+  width: 70%;
+}
